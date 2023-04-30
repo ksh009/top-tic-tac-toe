@@ -161,15 +161,18 @@ button {
 	grid-template-rows: repeat(3, 1fr);
 	gap: 10px;
 	width: 50%;
-	height: 80%;
+	height: 85%;
 	margin: 0 auto;
-	border: 1px solid black;
+	/* border: 1px solid black; */
+	border-radius: 15px;
 	padding: 10px;
+	background-color: var(--secondary-text-color);
+	box-shadow: rgb(0 0 0 / 16%) 0px 0px 6px, rgb(0 0 0 / 23%) 0px 0px 6px;
 }
 
 .grid-container .game-board-container .board .square {
 	background-color: white;
-	border: 1px solid black;
+	border: 1px solid grey;
 	font-size: 3em;
 	display: flex;
 	justify-content: center;
