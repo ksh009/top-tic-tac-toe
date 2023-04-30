@@ -151,6 +151,46 @@ button {
 	display: flex;
 	height: 100%;
 	width: 100%;
+	flex-direction: row;
+	align-items: center;
+}
+
+.grid-container .game-board-container .board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	width: 50%;
+	height: 80%;
+	margin: 0 auto;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.grid-container .game-board-container .board .square {
+	background-color: white;
+	border: 1px solid black;
+	font-size: 3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.grid-container .game-board-container .board .square:hover {
+	background-color: lightgray;
+}
+
+.grid-container .game-board-container .board .square:active {
+	background-color: gray;
+}
+
+.grid-container .game-board-container .board .square.x::before {
+	content: 'X';
+}
+
+.grid-container .game-board-container .board .square.o::before {
+	content: 'O';
 }
 
 /* Book show end */
