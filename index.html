@@ -26,8 +26,7 @@
 
 				<main class="grid-container">
 					<div class="sidebar">
-						<button id="addBookBtn" class="add-book-btn">
-							<!-- Conditionally change btn when game started -->
+						<button id="newGameBtn">
 							<p>NEW GAME</p>
 						</button>
 					</div>
@@ -45,40 +44,6 @@
 						</div>
 					</div>
 				</main>
-
-				<!-- Change form here for player information and symbols -->
-				<div id="addBookModal" class="modal">
-					<div class="modal-content">
-						<span id="closeChar" class="close">&times;</span>
-						<form>
-							<div>
-								<label for="title">Title:</label>
-								<input type="text" id="title" name="title" required />
-							</div>
-							<div>
-								<label for="author">Author:</label>
-								<input type="text" id="author" name="author" required />
-							</div>
-							<div>
-								<label for="pages">Number of Pages:</label>
-								<input type="number" id="pages" name="pages" required />
-							</div>
-							<div>
-								<label for="language">Language:</label>
-								<input type="text" id="language" name="language" required />
-							</div>
-							<div>
-								<label for="date">Date of Publish:</label>
-								<input type="date" id="date" name="date" required />
-							</div>
-							<div class="input-checkbox-container">
-								<label for="read">Have you read this book?</label>
-								<input type="checkbox" id="read" name="read" />
-							</div>
-							<button type="submit">Submit</button>
-						</form>
-					</div>
-				</div>
 
 				<script src="script.js"></script>
 			</body>
