@@ -29,7 +29,7 @@ let currentPlayer = 'X';
 squares.forEach((square) => {
 	square.addEventListener('click', () => {
 		if (square.textContent === '') {
-			square.classList.add(currentPlayer.toLowerCase());
+			square.classList.add(currentPlayer);
 			square.textContent = currentPlayer;
 
 			currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
