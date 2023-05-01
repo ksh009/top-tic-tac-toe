@@ -1,6 +1,5 @@
 // Handle game start modal
 // const modal = document.getElementById('newGameModal');
-// const newGamebtn = document.getElementById('newGameBtn');
 // const modalCloseBtn = document.getElementById('closeChar');
 
 // newGamebtn.onclick = function () {
@@ -19,6 +18,8 @@
 // };
 
 // Game board and squares
+const newGamebtn = document.getElementById('newGameBtn');
+const gameBtnText = document.querySelector('.game-btn-text');
 const board = document.querySelector('.board');
 const squares = document.querySelectorAll('.square');
 

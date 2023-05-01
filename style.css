@@ -153,6 +153,7 @@ button {
 	width: 100%;
 	flex-direction: row;
 	align-items: center;
+	padding-right: 15%;
 }
 
 .grid-container .game-board-container .board {
