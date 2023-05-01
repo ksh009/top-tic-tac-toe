@@ -105,7 +105,7 @@ button {
 
 .grid-container {
 	display: grid;
-	grid-template-columns: 200px 1fr;
+	grid-template-columns: 0.3fr 1.7fr;
 	/* grid-gap: 20px; */
 	height: 55.5rem;
 }
@@ -121,7 +121,7 @@ button {
 }
 
 .grid-container .sidebar button p {
-	margin-top: 19px;
+	margin-top: 13px;
 }
 
 .grid-container .sidebar button:hover {
@@ -141,9 +141,12 @@ button {
 
 .grid-container .sidebar button::before {
 	content: '+';
-	display: inline-block;
+	display: flex;
+	align-self: center;
+	justify-self: center;
 	margin: 0 9px;
 	font-size: 40px;
+	height: -16px;
 }
 
 .grid-container .game-board-container {
