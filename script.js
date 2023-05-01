@@ -1,22 +1,32 @@
-// Handle game start modal
-// const modal = document.getElementById('newGameModal');
-// const modalCloseBtn = document.getElementById('closeChar');
+const gameBoard = (() => {
+	// private variable to represent the gameboard array
+	let board = ['X', 'O', '', 'X', '', 'O', '', '', ''];
 
-// newGamebtn.onclick = function () {
-// 	modal.style.display = 'flex';
-// 	modal.style.flexDirection = 'row';
-// };
+	// public function to render the gameboard to the DOM
+	const render = () => {
+		// select the table element in the DOM
+		const table = document.querySelector('table');
 
-// modalCloseBtn.onclick = function () {
-// 	modal.style.display = 'none';
-// };
+		// loop through each cell of the table and fill it with the corresponding value from the gameboard array
+		for (let i = 0; i < table.rows.length; i++) {
+			for (let j = 0; j < table.rows[i].cells.length; j++) {
+				table.rows[i].cells[j].textContent = board[i * 3 + j];
+			}
+		}
 
-// window.onclick = function (event) {
-// 	if (event.target == modal) {
-// 		modal.style.display = 'none';
-// 	}
-// };
+		console.log('table', table);
+	};
 
+	// public API
+	return {
+		render,
+	};
+})();
+
+gameBoard.board = ['X', 'O', '', 'X', '', 'O', '', '', ''];
+gameBoard.render();
+
+/* OLD CODE
 // Game board and squares
 const newGamebtn = document.getElementById('newGameBtn');
 const gameBtnText = document.querySelector('.game-btn-text');
@@ -37,3 +47,4 @@ squares.forEach((square) => {
 		}
 	});
 });
+*/

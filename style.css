@@ -195,3 +195,18 @@ button {
 .grid-container .game-board-container .board .square.o::before {
 	content: 'O';
 }
+
+/* Testing */
+table {
+	border-collapse: collapse;
+	width: 200px;
+	height: 200px;
+}
+
+td {
+	border: 1px solid black;
+	text-align: center;
+	font-size: 48px;
+	font-weight: bold;
+	cursor: pointer;
+}
