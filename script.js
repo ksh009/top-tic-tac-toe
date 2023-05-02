@@ -9,8 +9,6 @@ const gameBoard = (() => {
 				table.rows[i].cells[j].textContent = board[i * 3 + j];
 			}
 		}
-
-		console.log('table', table);
 	};
 
 	return {
@@ -58,3 +56,17 @@ const checkWin = () => {
 
 	return false;
 };
+
+// Initialization of modules / usage
+const startButton = document.getElementById('start');
+startButton.addEventListener('click', () => {
+	console.log('Btn clicked...');
+	const player1Name = document.getElementById('player1').value;
+	const player2Name = document.getElementById('player2').value;
+	const currentPlayerDisplay = document.querySelector('.current-player');
+
+	currentPlayerDisplay.textContent =
+		currentPlayerDisplay.textContent === '' || player1Name
+			? player2Name
+			: player1Name;
+});
