@@ -28,6 +28,17 @@ const gameBoard = (() => {
 gameBoard.board = ['X', 'O', 'O', 'X', 'X', 'O', 'X', 'X', 'O'];
 gameBoard.render();
 
+// player factory function
+const createPlayer = (name, marker) => {
+	console.log('Player name', name);
+	console.log('Player marker', marker);
+
+	return {
+		name,
+		marker,
+	};
+};
+
 // Use function in bigger function later
 /*
 	Check winning conditions
