@@ -70,3 +70,17 @@ startButton.addEventListener('click', () => {
 			? player2Name
 			: player1Name;
 });
+
+/*
+	Functionality still needed 
+	A function that can handle the following: 
+		- 1. Starting game 
+		- 2. Resetting game 
+		- 3. Making a move 
+		- 4. Switch a player after player move 
+		- 5. Check for the winning conditions 
+			- This function is complete
+		- 6. check if there is a tie
+		- 7. Check if the game is over 
+
+*/
