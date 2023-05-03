@@ -13,6 +13,7 @@ const gameBoard = (() => {
 
 	return {
 		render,
+		board,
 	};
 })();
 
@@ -27,34 +28,51 @@ const createPlayer = (name, marker) => {
 	};
 };
 
-// Use function in bigger function later
-/*
-	Check winning conditions
-*/
-const checkWin = () => {
-	const winningCombinations = [
-		[0, 1, 2],
-		[3, 4, 5],
-		[6, 7, 8],
-		[0, 3, 6],
-		[1, 4, 7],
-		[2, 5, 8],
-		[0, 4, 8],
-		[2, 4, 6],
-	];
+// Module
+const game = () => {
+	let currentPlayer;
+	let player1;
+	let player2;
 
-	for (let i = 0; i < winningCombinations.length; i++) {
-		const [a, b, c] = winningCombinations[i];
-		if (
-			gameBoard.board[a] !== '' &&
-			gameBoard.board[a] === gameBoard.board[b] &&
-			gameBoard.board[b] === gameBoard.board[c]
-		) {
-			return true;
+	const startGame = (name1, marker1, name2, marker2) => {
+		console.log('Start game initialized...');
+		player1 = createPlayer(name1, marker1);
+		player2 = createPlayer(name2, marker2);
+		gameBoard.render();
+		currentPlayer = player1;
+		const currentPlayerDisplay = document.querySelector('.current-player');
+		currentPlayerDisplay.textContent = player1.name;
+	};
+
+	const checkWin = () => {
+		const winningCombinations = [
+			[0, 1, 2],
+			[3, 4, 5],
+			[6, 7, 8],
+			[0, 3, 6],
+			[1, 4, 7],
+			[2, 5, 8],
+			[0, 4, 8],
+			[2, 4, 6],
+		];
+
+		for (let i = 0; i < winningCombinations.length; i++) {
+			const [a, b, c] = winningCombinations[i];
+			if (
+				gameBoard.board[a] !== '' &&
+				gameBoard.board[a] === gameBoard.board[b] &&
+				gameBoard.board[b] === gameBoard.board[c]
+			) {
+				return true;
+			}
 		}
-	}
 
-	return false;
+		return false;
+	};
+
+	return {
+		startGame,
+	};
 };
 
 // Initialization of modules / usage
@@ -63,12 +81,9 @@ startButton.addEventListener('click', () => {
 	console.log('Btn clicked...');
 	const player1Name = document.getElementById('player1').value;
 	const player2Name = document.getElementById('player2').value;
-	const currentPlayerDisplay = document.querySelector('.current-player');
 
-	currentPlayerDisplay.textContent =
-		currentPlayerDisplay.textContent === '' || player1Name
-			? player2Name
-			: player1Name;
+	// Test start game
+	game().startGame(player1Name, 'X', player2Name, 'O');
 });
 
 /*
