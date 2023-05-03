@@ -44,6 +44,17 @@ const game = (() => {
 		currentPlayerDisplay.textContent = player1.name;
 	};
 
+	const switchPlayer = () => {
+		if (currentPlayer === player1) {
+			currentPlayer = player2;
+		} else {
+			currentPlayer = player1;
+		}
+
+		const currentPlayerDisplay = document.querySelector('.current-player');
+		currentPlayerDisplay.textContent = currentPlayer.name;
+	};
+
 	const makeMove = (cellIndex) => {
 		// console.log('Move made');
 		// Can't manke a move when cell is not empty
@@ -56,6 +67,9 @@ const game = (() => {
 		gameBoard.board[cellIndex] = currentPlayer.marker;
 
 		gameBoard.render();
+
+		// Switch player
+		switchPlayer();
 	};
 
 	const checkWin = () => {
