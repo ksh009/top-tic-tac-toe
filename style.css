@@ -124,7 +124,7 @@ button {
 .game-board {
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
+	margin-top: 18px;
 	height: 300px;
 }
 
@@ -144,7 +144,7 @@ button {
 	font-weight: bold;
 }
 
-td {
+.game-container td {
 	width: 117px;
 	height: 99px;
 	text-align: center;
@@ -156,18 +156,27 @@ td {
 	background-color: var(--tertiary-color);
 }
 
-td:hover {
+.game-container td:hover {
 	background-color: #f5f5f5;
 }
 
-td:active {
+.game-container td:active {
 	background-color: #e0e0e0;
 }
 
-.message {
+.game-container .message {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin-top: 54px;
+	margin-top: 27px;
 	font-weight: bolder;
+	align-items: center;
+}
+
+.game-container .message p {
+	margin-right: 27px;
+}
+
+.game-container .message button {
+	display: none;
 }

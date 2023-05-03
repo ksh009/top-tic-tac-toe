@@ -41,7 +41,7 @@ const game = (() => {
 		gameBoard.render();
 		currentPlayer = player1;
 		const currentPlayerDisplay = document.querySelector('.current-player');
-		currentPlayerDisplay.textContent = player1.name;
+		currentPlayerDisplay.textContent = `${player1.name} is playing...`;
 	};
 
 	const checkWin = () => {
@@ -82,7 +82,24 @@ const game = (() => {
 		}
 
 		const currentPlayerDisplay = document.querySelector('.current-player');
-		currentPlayerDisplay.textContent = currentPlayer.name;
+		currentPlayerDisplay.textContent = `${currentPlayer.name} is playing...`;
+	};
+
+	const gameOver = () => {
+		const winnerDisplay = document.querySelector('.winner');
+		const resetGame = document.querySelector('.reset-game');
+		if (checkWin()) {
+			winnerDisplay.textContent = `${currentPlayer.name} wins!`;
+		} else {
+			winnerDisplay.textContent = "It's a tie!";
+		}
+
+		resetGame.style.display = 'revert';
+
+		resetGame.addEventListener('click', () => {
+			console.log('Resetting game');
+			location.reload();
+		});
 	};
 
 	const makeMove = (cellIndex) => {
@@ -99,9 +116,7 @@ const game = (() => {
 		gameBoard.render();
 
 		if (checkWin() || checkTie()) {
-			console.log(
-				`Game over. ${checkWin() ? 'We have a winner' : 'There was a tie'}`
-			);
+			gameOver();
 		} else {
 			console.log('Game not over, next player turn');
 			// Switch player
@@ -143,11 +158,11 @@ startButton.addEventListener('click', () => {
 	A function that can handle the following: 
 		- 1. Starting game (Complete)
 		- 2. Resetting game 
-		- 3. Making a move 
-		- 4. Switch a player after player move 
+		- 3. Making a move (Complete)
+		- 4. Switch a player after player move (Complete)
 		- 5. Check for the winning conditions 
 			- This function is complete
-		- 6. check if there is a tie
-		- 7. Check if the game is over 
+		- 6. check if there is a tie (Complete)
+		- 7. Check if the game is over (Complete)
 
 */
