@@ -44,6 +44,20 @@ const game = (() => {
 		currentPlayerDisplay.textContent = player1.name;
 	};
 
+	const makeMove = (cellIndex) => {
+		// console.log('Move made');
+		// Can't manke a move when cell is not empty
+		if (gameBoard.board[cellIndex] !== '') {
+			console.log('Already played here!!!');
+			return false;
+		}
+
+		console.log('cell available, playing here');
+		gameBoard.board[cellIndex] = currentPlayer.marker;
+
+		gameBoard.render();
+	};
+
 	const checkWin = () => {
 		const winningCombinations = [
 			[0, 1, 2],
@@ -72,6 +86,7 @@ const game = (() => {
 
 	return {
 		startGame,
+		makeMove,
 	};
 })();
 
@@ -82,14 +97,26 @@ startButton.addEventListener('click', () => {
 	const player1Name = document.getElementById('player1').value;
 	const player2Name = document.getElementById('player2').value;
 
+	// Get all tds from table rows
+	const cells = document.querySelectorAll('td');
+	console.log('cells in usage', cells);
+
 	// Test start game
 	game.startGame(player1Name, 'X', player2Name, 'O');
+
+	// Add event listener to each cell / td
+	cells.forEach((cell, index) => {
+		cell.addEventListener('click', () => {
+			// Make a move
+			game.makeMove(index);
+		});
+	});
 });
 
 /*
 	Functionality still needed 
 	A function that can handle the following: 
-		- 1. Starting game 
+		- 1. Starting game (Complete)
 		- 2. Resetting game 
 		- 3. Making a move 
 		- 4. Switch a player after player move 
