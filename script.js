@@ -29,7 +29,7 @@ const createPlayer = (name, marker) => {
 };
 
 // Module
-const game = () => {
+const game = (() => {
 	let currentPlayer;
 	let player1;
 	let player2;
@@ -73,7 +73,7 @@ const game = () => {
 	return {
 		startGame,
 	};
-};
+})();
 
 // Initialization of modules / usage
 const startButton = document.getElementById('start');
@@ -83,7 +83,7 @@ startButton.addEventListener('click', () => {
 	const player2Name = document.getElementById('player2').value;
 
 	// Test start game
-	game().startGame(player1Name, 'X', player2Name, 'O');
+	game.startGame(player1Name, 'X', player2Name, 'O');
 });
 
 /*
