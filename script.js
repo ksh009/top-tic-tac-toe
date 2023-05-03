@@ -19,9 +19,6 @@ const gameBoard = (() => {
 
 // player factory function
 const createPlayer = (name, marker) => {
-	console.log('Player name', name);
-	console.log('Player marker', marker);
-
 	return {
 		name,
 		marker,
@@ -35,7 +32,6 @@ const game = (() => {
 	let player2;
 
 	const startGame = (name1, marker1, name2, marker2) => {
-		console.log('Start game initialized...');
 		player1 = createPlayer(name1, marker1);
 		player2 = createPlayer(name2, marker2);
 		gameBoard.render();
@@ -97,20 +93,14 @@ const game = (() => {
 		resetGame.style.display = 'revert';
 
 		resetGame.addEventListener('click', () => {
-			console.log('Resetting game');
 			location.reload();
 		});
 	};
 
 	const makeMove = (cellIndex) => {
-		// console.log('Move made');
-		// Can't manke a move when cell is not empty
 		if (gameBoard.board[cellIndex] !== '') {
-			console.log('Already played here!!!');
 			return false;
 		}
-
-		console.log('cell available, playing here');
 		gameBoard.board[cellIndex] = currentPlayer.marker;
 
 		gameBoard.render();
@@ -118,8 +108,6 @@ const game = (() => {
 		if (checkWin() || checkTie()) {
 			gameOver();
 		} else {
-			console.log('Game not over, next player turn');
-			// Switch player
 			switchPlayer();
 		}
 	};
@@ -133,36 +121,16 @@ const game = (() => {
 // Initialization of modules / usage
 const startButton = document.getElementById('start');
 startButton.addEventListener('click', () => {
-	console.log('Btn clicked...');
 	const player1Name = document.getElementById('player1').value;
 	const player2Name = document.getElementById('player2').value;
 
-	// Get all tds from table rows
 	const cells = document.querySelectorAll('td');
-	console.log('cells in usage', cells);
 
-	// Test start game
 	game.startGame(player1Name, 'X', player2Name, 'O');
 
-	// Add event listener to each cell / td
 	cells.forEach((cell, index) => {
 		cell.addEventListener('click', () => {
-			// Make a move
 			game.makeMove(index);
 		});
 	});
 });
-
-/*
-	Functionality still needed 
-	A function that can handle the following: 
-		- 1. Starting game (Complete)
-		- 2. Resetting game 
-		- 3. Making a move (Complete)
-		- 4. Switch a player after player move (Complete)
-		- 5. Check for the winning conditions 
-			- This function is complete
-		- 6. check if there is a tie (Complete)
-		- 7. Check if the game is over (Complete)
-
-*/
