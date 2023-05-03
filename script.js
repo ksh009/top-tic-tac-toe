@@ -70,6 +70,10 @@ const game = (() => {
 		return false;
 	};
 
+	const checkTie = () => {
+		return gameBoard.board.every((cell) => cell !== '');
+	};
+
 	const switchPlayer = () => {
 		if (currentPlayer === player1) {
 			currentPlayer = player2;
@@ -94,8 +98,10 @@ const game = (() => {
 
 		gameBoard.render();
 
-		if (checkWin()) {
-			console.log('Game over, display winner name');
+		if (checkWin() || checkTie()) {
+			console.log(
+				`Game over. ${checkWin() ? 'We have a winner' : 'There was a tie'}`
+			);
 		} else {
 			console.log('Game not over, next player turn');
 			// Switch player
